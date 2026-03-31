@@ -1,0 +1,85 @@
+/* ============================================================
+   ChartBar — CSS Module
+   Only component tokens. No raw hex values.
+   Default dimensions match Figma defaults:
+     Vertical:   54px × 210px
+     Horizontal: 200px × 40px
+   Override width/height via the `className` prop on the root.
+============================================================ */
+
+/* ── Root containers ── */
+.rootV {
+  position: relative;
+  width: 54px;
+  height: 210px;
+}
+
+.rootH {
+  position: relative;
+  width: 200px;
+  height: 40px;
+}
+
+/* ── Vertical positive fill (anchored to bottom) ── */
+.fillV {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Vertical negative zone (top half) ── */
+.negZoneV {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+}
+
+/* ── Vertical negative fill (anchored to top of zone) ── */
+.fillVNeg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Horizontal fill (anchored to left) ── */
+.fillH {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ── Horizontal negative zone (right half) ── */
+.negZoneH {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+}
+
+/* ── Stacked segment ── */
+.segment {
+  flex: 1 0 0;
+  min-width: 1px;
+  min-height: 1px;
+}
+
+/* ── Separators between stacked segments ── */
+.separatorTop {
+  border-top: 1px solid var(--color-chart-bar-separator);
+}
+
+.separatorLeft {
+  border-left: 1px solid var(--color-chart-bar-separator);
+}

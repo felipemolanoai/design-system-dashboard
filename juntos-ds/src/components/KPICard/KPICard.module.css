@@ -1,0 +1,53 @@
+.card {
+  background-color: var(--color-kpicard-bg);
+  border-radius: var(--radius-card-lg);
+  overflow: hidden;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-s);
+  padding: var(--spacing-s);
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 0;
+}
+
+.label {
+  font-size: var(--font-size-kpicard-label);
+  font-weight: var(--font-weight-kpicard-label);
+  color: var(--color-kpicard-label);
+  line-height: 1;
+}
+
+.value {
+  font-size: var(--font-size-kpicard-value);
+  font-weight: var(--font-weight-kpicard-value);
+  color: var(--color-kpicard-value);
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-card);
+  background-color: var(--color-kpicard-icon-bg);
+  color: var(--color-kpicard-icon-fg);
+}
+
+.iconBox > * {
+  width: 16px;
+  height: 16px;
+}

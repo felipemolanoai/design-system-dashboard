@@ -1,0 +1,218 @@
+/* ============================================================
+   InputSelect — CSS Module
+   Only component tokens (section ④ of semantic.css) allowed.
+   No raw hex values, no primitive tokens.
+============================================================ */
+
+/* ---- Root wrapper ---- */
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs);
+  position: relative;
+  width: 100%;
+}
+
+/* Gap between label and trigger is tighter on small size */
+.root.small {
+  gap: var(--spacing-3xs);
+}
+
+/* ---- Label ---- */
+.label {
+  display: block;
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-select-label);
+  line-height: var(--line-height-navigation);
+}
+
+/* ---- Trigger button ---- */
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  width: 100%;
+
+  background-color: var(--color-select-bg);
+  border: var(--border-width-default) solid var(--color-select-border);
+  border-radius: var(--radius-select);
+
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  color: var(--color-select-text);
+  text-align: left;
+
+  cursor: pointer;
+  position: relative;
+
+  transition:
+    border-color var(--duration-normal) var(--easing-default),
+    box-shadow   var(--duration-normal) var(--easing-default);
+}
+
+/* ---- Size: Default (48px) ---- */
+.default .trigger {
+  min-height: 48px;
+  padding: var(--spacing-xs) var(--spacing-s);
+}
+
+/* ---- Size: Medium ---- */
+.medium .trigger {
+  padding: var(--spacing-2xs) var(--spacing-xs);
+}
+
+/* ---- Size: Small ---- */
+.small .trigger {
+  padding: var(--spacing-2xs);
+  font-size: var(--font-size-body-small);
+}
+
+/* ---- Open (expanded) state ---- */
+.trigger.open {
+  border-color: var(--color-select-border-open);
+  box-shadow: 0 0 0 2px var(--color-select-border-open);
+}
+
+/* ---- Disabled state ---- */
+.trigger.disabled {
+  background-color: var(--color-select-bg-disabled);
+  border-color: var(--color-select-border-disabled);
+  color: var(--color-select-text-disabled);
+  cursor: not-allowed;
+}
+
+.trigger.disabled .chevron {
+  color: var(--color-select-icon-disabled);
+}
+
+/* ---- Focus visible ---- */
+.trigger:focus-visible:not(.disabled) {
+  outline: var(--border-width-focus) solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* ---- Leading icon (left slot) ---- */
+.leadingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+/* ---- Trigger text ---- */
+.triggerText {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholderText {
+  color: var(--color-select-placeholder);
+}
+
+.disabled .placeholderText,
+.disabled .triggerText {
+  color: var(--color-select-text-disabled);
+}
+
+/* ---- Chevron icon (right slot) ---- */
+.chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+/* ---- Dropdown list ---- */
+.dropdown {
+  position: absolute;
+  top: calc(100% + var(--spacing-xs));
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-select-dropdown-bg);
+  border-radius: var(--radius-select-dropdown);
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.4), 0px 8px 24px -6px rgba(0, 0, 0, 0.16);
+
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- Dropdown option item ---- */
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  min-height: 48px;
+  padding: var(--spacing-xs);
+
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-select-text);
+
+  cursor: pointer;
+  background-color: var(--color-select-dropdown-bg);
+
+  transition: background-color var(--duration-fast) var(--easing-default);
+}
+
+.option:hover {
+  background-color: var(--neutral-surface-container-high);
+}
+
+.option:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus-ring);
+  outline-offset: -2px;
+}
+
+.optionSelected {
+  font-weight: var(--font-weight-medium);
+}
+
+/* ---- Option icon slots ---- */
+.optionLeadingIcon,
+.optionTrailingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.optionTrailingIcon {
+  margin-left: auto;
+}
+
+/* ---- Option label ---- */
+.optionLabel {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---- Horizontal divider between options ---- */
+.optionDivider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--color-select-item-divider);
+}

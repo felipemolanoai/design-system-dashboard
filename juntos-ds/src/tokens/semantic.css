@@ -1,0 +1,466 @@
+/* ============================================================
+   SEMANTIC TOKENS — Juntos+ DS
+   Sourced from Figma collections:
+     • Semantic Color Tokens     — 91 variables  / Juntos App mode
+     • Semantic Typography Tokens — 20 variables / Mobile · Tablet · Desktop
+     • Semantic Spacing Tokens   — 11 variables  / Mobile · Tablet · Desktop
+   https://www.figma.com/design/Eizk5sNznUDqU6bmIOYuD7/Juntos--DS
+
+   ARCHITECTURE:
+   ① SEMANTIC COLOR TOKENS   — direct aliases from Figma's collection
+   ② SEMANTIC TYPOGRAPHY     — responsive (Mobile default, overrides via @media)
+   ③ SEMANTIC SPACING        — aliases to the primitive size scale
+   ④ COMPONENT TOKENS        — higher-level aliases used by component CSS Modules
+
+   RULES:
+   - Components reference ONLY tokens from section ④
+   - Never hardcode hex values in components
+   - Primitive tokens (colors, sizes, weights) live in primitive.css
+============================================================ */
+
+:root {
+
+  /* ============================================================
+     ① SEMANTIC COLOR TOKENS
+        Figma: "Semantic Color Tokens" / Juntos App mode
+        All values are aliases to Core Token colors.
+  ============================================================ */
+
+  /* ---- Neutral Colors ---- */
+  --neutral-surface-bg:              var(--color-neutral-600);  /* #f7f7f7 */
+  --neutral-surface-container-high:  var(--color-neutral-500);  /* #f2f2f2 */
+  --neutral-surface-container-low:   var(--color-neutral-400);  /* #d9d9d9 */
+  --neutral-surface-container-fg:    var(--color-neutral-700);  /* #fcfcfc */
+  --neutral-on-surface-highest:      var(--color-neutral-000);  /* #141414 */
+  --neutral-on-surface-high:         var(--color-neutral-100);  /* #222222 */
+  --neutral-on-surface-medium:       var(--color-neutral-200);  /* #6e6e6e */
+  --neutral-on-surface-low:          var(--color-neutral-400);  /* #d9d9d9 */
+  --neutral-on-surface-lowest:       var(--color-neutral-700);  /* #fcfcfc */
+
+  /* ---- Interaction Colors / Primary ---- */
+  --action-primary-surface:          var(--color-red-300);      /* #ff3b52 */
+  --action-primary-surface-hover:    var(--color-red-200);      /* #e31f42 */
+  --action-primary-surface-pressed:  var(--color-red-100);      /* #bd021c */
+  --action-primary-on-surface:       var(--color-neutral-700);  /* #fcfcfc */
+
+  /* ---- Interaction Colors / Secondary ---- */
+  --action-secondary-surface:            var(--color-neutral-700);  /* #fcfcfc */
+  --action-secondary-surface-hover:      var(--color-red-500);      /* #ffe5ea */
+  --action-secondary-surface-pressed:    var(--color-red-400);      /* #ffb2c0 */
+  --action-secondary-on-surface-low:     var(--color-red-500);      /* #ffe5ea */
+  --action-secondary-on-surface-high:    var(--color-red-300);      /* #ff3b52 */
+  --action-secondary-on-surface-highest: var(--color-red-000);      /* #660012 */
+
+  /* ---- Interaction Colors / Accent ---- */
+  --action-accent-surface:           var(--color-neutral-000);  /* #141414 */
+  --action-accent-surface-hover:     var(--color-neutral-100);  /* #222222 */
+  --action-accent-surface-pressed:   var(--color-neutral-200);  /* #6e6e6e */
+  --action-accent-on-surface:        var(--color-neutral-700);  /* #fcfcfc */
+
+  /* ---- Interaction Colors / Error ---- */
+  --action-error-surface:             var(--color-red-200);     /* #e31f42 */
+  --action-error-on-surface:          var(--color-red-600);     /* #fffafb */
+  --action-error-surface-inverted:    var(--color-red-500);     /* #ffe5ea */
+  --action-error-on-surface-inverted: var(--color-red-200);     /* #e31f42 */
+
+  /* ---- Interaction Colors / Success ---- */
+  --action-success-surface:             var(--color-green-100); /* #00a226 */
+  --action-success-on-surface:          var(--color-green-600); /* #fafffb */
+  --action-success-surface-inverted:    var(--color-green-400); /* #edfbe9 */
+  --action-success-on-surface-inverted: var(--color-green-100); /* #00a226 */
+
+  /* ---- Interaction Colors / Warning ---- */
+  --action-warning-surface:             var(--color-mustard-200); /* #ffc01a */
+  --action-warning-on-surface:          var(--color-neutral-100); /* #222222 */
+  --action-warning-surface-inverted:    var(--color-mustard-500); /* #fff8e5 */
+  --action-warning-on-surface-inverted: var(--color-mustard-200); /* #ffc01a */
+
+  /* ---- Interaction Colors / Info ---- */
+  --action-info-surface:             var(--color-blue-100);     /* #0234d7 */
+  --action-info-on-surface:          var(--color-blue-600);     /* #fafbff */
+  --action-info-surface-inverted:    var(--color-blue-500);     /* #e5ebff */
+  --action-info-on-surface-inverted: var(--color-blue-100);     /* #0234d7 */
+
+  /* ---- Interaction Colors / Disabled ---- */
+  --action-disabled-surface:             var(--color-neutral-300); /* #acacac */
+  --action-disabled-on-surface:          var(--color-neutral-700); /* #fcfcfc */
+  --action-disabled-surface-inverted:    var(--color-neutral-600); /* #f7f7f7 */
+  --action-disabled-on-surface-inverted: var(--color-neutral-300); /* #acacac */
+
+  /* ---- Interaction Colors / Promo ---- */
+  --action-promo-surface:             var(--color-red-200);     /* #e31f42 */
+  --action-promo-on-surface:          var(--color-salmon-600);  /* #fffafa */
+  --action-promo-surface-inverted:    var(--color-orange-500);  /* #fff0e5 */
+  --action-promo-on-surface-inverted: var(--color-red-200);     /* #e31f42 */
+
+  /* ---- Interaction Colors / Premia primary ---- */
+  --action-premia-surface:           var(--color-orange-200);   /* #f55600 */
+  --action-premia-surface-hover:     var(--color-salmon-100);   /* #d92a1c */
+  --action-premia-surface-pressed:   var(--color-salmon-000);   /* #6f221d */
+  --action-premia-on-surface:        var(--color-salmon-600);   /* #fffafa */
+
+  /* ---- Interaction Colors / Premia secondary ---- */
+  --action-premia-secondary-surface:            var(--color-orange-600);  /* #fff9f5 */
+  --action-premia-secondary-surface-hover:      var(--color-orange-500);  /* #fff0e5 */
+  --action-premia-secondary-surface-pressed:    var(--color-orange-300);  /* #ffa766 */
+  --action-premia-secondary-on-surface-low:     var(--color-orange-500);  /* #fff0e5 */
+  --action-premia-secondary-on-surface-high:    var(--color-orange-200);  /* #f55600 */
+  --action-premia-secondary-on-surface-highest: var(--color-orange-000);  /* #662c00 */
+
+  /* ---- Status Colors ---- */
+  --status-neutral:   var(--color-neutral-300);   /* #acacac */
+  --status-progress:  var(--color-orange-300);    /* #ffa766 */
+  --status-completed: var(--color-green-100);     /* #00a226 */
+  --status-attention: var(--color-mustard-200);   /* #ffc01a */
+  --status-critical:  var(--color-red-300);       /* #ff3b52 */
+
+  /* ---- Chart Colors / Semantic ---- */
+  --chart-positive: var(--color-green-200);       /* #63d749 */
+  --chart-negative: var(--color-red-200);         /* #e31f42 */
+  --chart-warning:  var(--color-mustard-200);     /* #ffc01a */
+  --chart-neutral:  var(--color-neutral-300);     /* #acacac */
+
+  /* ---- Chart Colors / Data series ---- */
+  --chart-series-1:  var(--color-red-300);        /* #ff3b52 */
+  --chart-series-2:  var(--color-salmon-000);     /* #6f221d */
+  --chart-series-3:  var(--color-mustard-200);    /* #ffc01a */
+  --chart-series-4:  var(--color-olive-100);      /* #8fb200 */
+  --chart-series-5:  var(--color-magenta-200);    /* #ff1a75 */
+  --chart-series-6:  var(--color-salmon-300);     /* #fd9797 */
+  --chart-series-7:  var(--color-green-100);      /* #00a226 */
+  --chart-series-8:  var(--color-red-300);        /* #ff3b52 */
+  --chart-series-9:  var(--color-yellow-100);     /* #b2a000 */
+  --chart-series-10: var(--color-cyan-100);       /* #0098b2 */
+  --chart-series-11: var(--color-magenta-300);    /* #ff80b2 */
+  --chart-series-12: var(--color-purple-200);     /* #e21aff */
+  --chart-series-13: var(--color-violet-200);     /* #851aff */
+  --chart-series-14: var(--color-neutral-200);    /* #6e6e6e */
+  --chart-series-15: var(--color-violet-000);     /* #300066 */
+
+  /* ---- Channel Colors ---- */
+  --channel-surface-advisor:       var(--color-magenta-500); /* #ffe5f0 */
+  --channel-surface-juntos:        var(--color-red-500);     /* #ffe5ea */
+  --channel-surface-whatsapp:      var(--color-green-400);   /* #edfbe9 */
+  --channel-surface-callcenter:    var(--color-purple-500);  /* #fce5ff */
+  --channel-surface-sales:         var(--color-violet-500);  /* #f1e5ff */
+  --channel-on-surface-advisor:    var(--color-magenta-200); /* #ff1a75 */
+  --channel-on-surface-juntos:     var(--color-red-200);     /* #e31f42 */
+  --channel-on-surface-whatsapp:   var(--color-green-000);   /* #188500 */
+  --channel-on-surface-callcenter: var(--color-purple-100);  /* #9c00b2 */
+  --channel-on-surface-sales:      var(--color-violet-000);  /* #300066 */
+
+
+  /* ============================================================
+     ② SEMANTIC TYPOGRAPHY TOKENS
+        Figma: "Semantic Typography Tokens"
+        Mobile values are the default. Tablet/Desktop override via @media.
+  ============================================================ */
+
+  /* Font family */
+  --font-family-main: var(--font-family-inter);
+
+  /* Font sizes — Mobile (default) */
+  --font-size-heading-hero:   var(--size-48);   /* 48px */
+  --font-size-heading-large:  var(--size-40);   /* 40px */
+  --font-size-heading-medium: var(--size-32);   /* 32px */
+  --font-size-heading-small:  var(--size-24);   /* 24px */
+  --font-size-body-large:     var(--size-20);   /* 20px */
+  --font-size-body-medium:    var(--size-16);   /* 16px */
+  --font-size-body-small:     var(--size-12);   /* 12px */
+  --font-size-caption-large:  var(--size-10);   /* 10px */
+  --font-size-caption-small:  var(--size-8);    /* 8px  */
+
+  /* Font weights */
+  --font-weight-bold:     var(--font-weight-700);
+  --font-weight-semibold: var(--font-weight-600);
+  --font-weight-medium:   var(--font-weight-500);
+  --font-weight-regular:  var(--font-weight-400);
+  --font-weight-light:    var(--font-weight-300);
+
+  /* Line heights — Mobile (default) */
+  --line-height-navigation: var(--font-lineheight-100);   /* 1      */
+  --line-height-heading:    var(--font-lineheight-112);   /* 1.125  */
+  --line-height-condensed:  var(--font-lineheight-125);   /* 1.25   */
+  --line-height-short:      var(--font-lineheight-133);   /* 1.33   */
+  --line-height-long:       var(--font-lineheight-150);   /* 1.5    */
+
+
+  /* ============================================================
+     ③ SEMANTIC SPACING TOKENS
+        Figma: "Semantic Spacing Tokens"
+        Values are the same across Mobile, Tablet, and Desktop.
+  ============================================================ */
+
+  --spacing-3xs: var(--size-4);    /*  4px */
+  --spacing-2xs: var(--size-8);    /*  8px */
+  --spacing-xs:  var(--size-12);   /* 12px */
+  --spacing-s:   var(--size-16);   /* 16px */
+  --spacing-m:   var(--size-24);   /* 24px */
+  --spacing-l:   var(--size-32);   /* 32px */
+  --spacing-xl:  var(--size-40);   /* 40px */
+  --spacing-2xl: var(--size-48);   /* 48px */
+  --spacing-3xl: var(--size-56);   /* 56px */
+  --spacing-4xl: var(--size-64);   /* 64px */
+
+
+  /* ============================================================
+     ④ COMPONENT TOKENS
+        High-level aliases used directly by component CSS Modules.
+        These are the ONLY tokens that components should reference.
+  ============================================================ */
+
+  /* ---- Focus ring ---- */
+  --color-focus-ring: var(--action-primary-surface);
+
+  /* ---- Page & surface backgrounds ---- */
+  --color-bg-page:    var(--neutral-surface-bg);
+  --color-bg-surface: var(--neutral-surface-container-fg);
+
+  /* ---- Text ---- */
+  --color-text-default: var(--neutral-on-surface-highest);
+  --color-text-heading: var(--neutral-on-surface-highest);
+  --color-text-muted:   var(--neutral-on-surface-medium);
+  --color-text-inverse: var(--action-primary-on-surface);
+
+  /* ---- Borders ---- */
+  --color-border-subtle:  var(--neutral-surface-container-high);
+  --color-border-default: var(--neutral-surface-container-fg);
+
+  /* ---- Button — Primary ---- */
+  --color-button-primary-bg:        var(--action-primary-surface);
+  --color-button-primary-bg-hover:  var(--action-primary-surface-hover);
+  --color-button-primary-bg-active: var(--action-primary-surface-pressed);
+  --color-button-primary-text:      var(--action-primary-on-surface);
+
+  /* ---- Button — Secondary ---- */
+  --color-button-secondary-bg:           var(--action-secondary-surface);
+  --color-button-secondary-bg-hover:     var(--action-secondary-surface-hover);
+  --color-button-secondary-bg-active:    var(--action-secondary-surface-pressed);
+  --color-button-secondary-text:         var(--action-secondary-on-surface-high);
+  --color-button-secondary-border:       var(--action-primary-surface);
+  --color-button-secondary-border-hover: var(--action-primary-surface-hover);
+
+  /* ---- Button — Ghost ---- */
+  --color-button-ghost-text:      var(--action-primary-surface);
+  --color-button-ghost-bg-hover:  var(--action-secondary-surface-hover);
+  --color-button-ghost-bg-active: var(--action-secondary-surface-pressed);
+
+  /* ---- Button — Disabled ---- */
+  --color-button-disabled-bg:   var(--action-disabled-surface);
+  --color-button-disabled-text: var(--action-disabled-on-surface);
+
+  /* ---- Typography: Headings (component level) ---- */
+  --font-size-heading-sm: var(--font-size-body-large);     /* 20px */
+  --font-size-heading-md: var(--font-size-heading-small);  /* 24px */
+  --font-size-heading-lg: var(--font-size-heading-medium); /* 32px */
+  --font-weight-heading:  var(--font-weight-semibold);
+
+  /* ---- Typography: Body (component level) ---- */
+  --font-size-body:           var(--font-size-body-medium);
+  --font-weight-body:         var(--font-weight-regular);
+  --line-height-body-default: var(--line-height-long);
+
+  /* ---- Typography: Button ---- */
+  --font-size-button-sm: var(--font-size-body-small);    /* 12px */
+  --font-size-button-md: var(--font-size-body-medium);   /* 16px */
+  --font-size-button-lg: var(--font-size-body-large);    /* 20px */
+  --font-weight-button:  var(--font-weight-medium);
+
+  /* ---- Spacing: Button internal ---- */
+  --spacing-button-sm-y: var(--spacing-3xs);  /*  4px */
+  --spacing-button-sm-x: var(--spacing-xs);   /* 12px */
+  --spacing-button-md-y: var(--spacing-2xs);  /*  8px */
+  --spacing-button-md-x: var(--spacing-s);    /* 16px */
+  --spacing-button-lg-y: var(--spacing-xs);   /* 12px */
+  --spacing-button-lg-x: var(--spacing-m);    /* 24px */
+  --spacing-button-gap:  var(--spacing-2xs);  /*  8px */
+
+  /* ---- Spacing: Layout ---- */
+  --spacing-page-x:   var(--spacing-m);    /* 24px */
+  --spacing-page-y:   var(--spacing-l);    /* 32px */
+  --spacing-header-y: var(--spacing-s);    /* 16px */
+
+  /* ---- Spacing: Stack (vertical rhythm) ---- */
+  --spacing-stack-sm: var(--spacing-2xs);  /*  8px */
+  --spacing-stack-md: var(--spacing-s);    /* 16px */
+  --spacing-stack-lg: var(--spacing-m);    /* 24px */
+  --spacing-stack-xl: var(--spacing-l);    /* 32px */
+
+  /* ---- Spacing: Inline (horizontal rhythm) ---- */
+  --spacing-inline-sm: var(--spacing-2xs); /*  8px */
+  --spacing-inline-md: var(--spacing-xs);  /* 12px */
+  --spacing-inline-lg: var(--spacing-s);   /* 16px */
+
+  /* ---- Border radius ---- */
+  --radius-button:   4px;
+  --radius-card:     8px;
+  --radius-card-lg:  16px;
+  --radius-badge:    104px;
+  --radius-dot:      4px;
+
+  /* ---- Border width ---- */
+  --border-width-default: 1px;
+  --border-width-focus:   2px;
+
+  /* ---- Navbar ---- */
+  --color-navbar-bg:           var(--neutral-surface-container-fg);
+  --color-navbar-border:       var(--neutral-surface-container-low);
+  --color-navbar-text:         var(--neutral-on-surface-highest);
+  --color-navbar-text-sub:     var(--neutral-on-surface-high);
+  --color-navbar-text-muted:   var(--neutral-on-surface-medium);
+
+  /* ---- Tab ---- */
+  --color-tab-active-border:   var(--action-primary-surface);
+  --color-tab-active-text:     var(--neutral-on-surface-highest);
+  --color-tab-inactive-text:   var(--neutral-on-surface-high);
+  --font-size-tab:             var(--font-size-body-medium);
+  --font-weight-tab-active:    var(--font-weight-bold);
+  --font-weight-tab-inactive:  var(--font-weight-regular);
+  --spacing-tab-x:             var(--spacing-2xs);
+  --spacing-tab-y:             var(--spacing-2xs);
+
+  /* ---- KPI Card ---- */
+  --color-kpicard-bg:          var(--neutral-surface-container-fg);
+  --color-kpicard-label:       var(--neutral-on-surface-highest);
+  --color-kpicard-value:       var(--neutral-on-surface-highest);
+  --color-kpicard-icon-bg:     var(--action-primary-surface);
+  --color-kpicard-icon-fg:     var(--action-primary-on-surface);
+  --font-size-kpicard-label:   var(--font-size-body-small);
+  --font-size-kpicard-value:   var(--font-size-heading-small);
+  --font-weight-kpicard-label: var(--font-weight-bold);
+  --font-weight-kpicard-value: var(--font-weight-bold);
+
+  /* ---- Badge ---- */
+  --color-badge-primary-bg:    var(--action-primary-surface);
+  --color-badge-primary-text:  var(--action-primary-on-surface);
+  --font-size-badge:           var(--font-size-caption-small);
+  --font-weight-badge:         var(--font-weight-semibold);
+
+  /* ---- PillarCard ---- */
+  --color-pillar-bg:           var(--neutral-surface-container-fg);
+  --color-pillar-border:       var(--neutral-surface-container-high);
+  --color-pillar-num:          var(--neutral-on-surface-high);
+  --color-pillar-label:        var(--neutral-on-surface-medium);
+  --color-pillar-title:        var(--neutral-on-surface-high);
+  --color-pillar-divider:      var(--neutral-surface-bg);
+  --font-size-pillar-num:      var(--font-size-heading-hero);
+  --font-size-pillar-label:    var(--font-size-caption-large);
+  --font-size-pillar-title:    var(--font-size-heading-small);
+  --font-weight-pillar-num:    var(--font-weight-regular);
+  --font-weight-pillar-label:  var(--font-weight-regular);
+  --font-weight-pillar-title:  var(--font-weight-regular);
+
+  /* ---- StatItem ---- */
+  --color-stat-label:         var(--neutral-on-surface-medium);
+  --color-stat-value-default: var(--neutral-on-surface-high);
+  --font-size-stat-label:     var(--font-size-caption-large);
+  --font-size-stat-value:     var(--font-size-body-medium);
+  --font-weight-stat-label:   var(--font-weight-regular);
+  --font-weight-stat-value:   var(--font-weight-bold);
+
+  /* ---- ChartLegendRow ---- */
+  --color-legend-name:        var(--neutral-on-surface-high);
+  --color-legend-value:       var(--neutral-on-surface-medium);
+  --font-size-legend:         var(--font-size-caption-large);
+  --font-weight-legend:       var(--font-weight-regular);
+
+  /* ---- Cell / Column (heatmap table) ---- */
+  --color-cell-bg-default:      var(--neutral-surface-container-fg);
+  --color-cell-border:          var(--neutral-on-surface-low);
+  --color-cell-text-dark:       var(--neutral-on-surface-highest);
+  --color-cell-text-medium:     var(--neutral-on-surface-high);
+  --color-cell-text-on-color:   var(--neutral-on-surface-lowest);
+  --font-size-cell-header:      var(--font-size-body-small);
+  --font-size-cell-data:        var(--font-size-body-small);
+  --font-weight-cell-header:    var(--font-weight-bold);
+  --font-weight-cell-data:      var(--font-weight-regular);
+  --height-cell-md:             40px;
+  --height-cell-sm:             32px;
+
+  /* ---- InputSelect ---- */
+  --color-select-bg:              var(--neutral-surface-container-fg);
+  --color-select-border:          var(--neutral-on-surface-low);
+  --color-select-border-open:     var(--action-accent-surface);
+  --color-select-bg-disabled:     var(--action-disabled-surface-inverted);
+  --color-select-border-disabled: var(--action-disabled-on-surface-inverted);
+  --color-select-text:            var(--neutral-on-surface-highest);
+  --color-select-placeholder:     var(--neutral-on-surface-low);
+  --color-select-text-disabled:   var(--action-disabled-on-surface-inverted);
+  --color-select-icon:            var(--neutral-on-surface-highest);
+  --color-select-icon-disabled:   var(--action-disabled-on-surface-inverted);
+  --color-select-label:           var(--neutral-on-surface-highest);
+  --color-select-dropdown-bg:     var(--neutral-surface-container-fg);
+  --color-select-item-divider:    var(--neutral-on-surface-low);
+  --radius-select:                var(--size-8);
+  --radius-select-dropdown:       var(--size-8);
+
+  /* ---- InputSearch ---- */
+  --color-input-search-bg:              var(--neutral-surface-container-fg);
+  --color-input-search-border:          var(--neutral-on-surface-low);
+  --color-input-search-border-focus:    var(--action-accent-surface);
+  --color-input-search-bg-disabled:     var(--action-disabled-surface-inverted);
+  --color-input-search-border-disabled: var(--action-disabled-on-surface-inverted);
+  --color-input-search-text:            var(--neutral-on-surface-highest);
+  --color-input-search-placeholder:     var(--neutral-on-surface-low);
+  --color-input-search-text-disabled:   var(--action-disabled-on-surface-inverted);
+  --color-input-search-icon:            var(--neutral-on-surface-highest);
+  --color-input-search-icon-disabled:   var(--action-disabled-on-surface-inverted);
+  --color-input-search-divider:         var(--neutral-on-surface-low);
+  --radius-input-search:                var(--size-64);
+  --height-input-search-min:            var(--size-40);
+  --height-input-search-max:            var(--size-48);
+
+  /* ---- ChartAxisValues ---- */
+  --color-axis-line:    var(--neutral-on-surface-highest); /* #141414 */
+  --color-axis-label:   var(--neutral-on-surface-highest); /* #141414 */
+  --font-size-axis:     var(--font-size-body-small);        /* 12px */
+  --font-weight-axis:   var(--font-weight-regular);
+
+  /* ---- ChartBar ---- */
+  --color-chart-bar-separator: var(--neutral-on-surface-lowest); /* #fcfcfc — white divider between stacked segments */
+
+  /* ---- ProgressBar ---- */
+  --color-progress-track: var(--neutral-surface-container-low);  /* #d9d9d9 */
+  --color-progress-fill:  var(--action-accent-surface);           /* #141414 */
+  --height-progress-sm:   4px;
+  --height-progress-md:   8px;
+  --radius-progress:      104px;
+
+  /* ---- Motion ---- */
+  --duration-fast:   100ms;
+  --duration-normal: 200ms;
+  --duration-slow:   300ms;
+  --easing-default:  ease-in-out;
+}
+
+
+/* ============================================================
+   RESPONSIVE OVERRIDES
+   Figma: Semantic Typography Tokens — Tablet and Desktop modes
+   Spacing and colors are the same across all breakpoints.
+============================================================ */
+
+/* --- Tablet (≥ 834px) --- */
+@media (min-width: 834px) {
+  :root {
+    --font-size-heading-hero:   var(--size-56);  /* 56px */
+    --font-size-heading-large:  var(--size-48);  /* 48px */
+    --font-size-heading-medium: var(--size-36);  /* 36px */
+    --font-size-heading-small:  var(--size-24);  /* 24px */
+
+    --line-height-heading:   var(--font-lineheight-125); /* 1.25 */
+    --line-height-condensed: var(--font-lineheight-133); /* 1.33 */
+    --line-height-short:     var(--font-lineheight-150); /* 1.5  */
+    --line-height-long:      var(--font-lineheight-170); /* 1.7  */
+  }
+}
+
+/* --- Desktop (≥ 1280px) --- */
+@media (min-width: 1280px) {
+  :root {
+    --font-size-heading-hero:   var(--size-72);  /* 72px */
+    --font-size-heading-large:  var(--size-56);  /* 56px */
+    --font-size-heading-medium: var(--size-40);  /* 40px */
+    --font-size-heading-small:  var(--size-28);  /* 28px */
+  }
+}

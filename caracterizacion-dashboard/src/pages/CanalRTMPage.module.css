@@ -1,0 +1,245 @@
+/* ============================================================
+   CanalRTMPage — CSS Module
+   Only semantic tokens. No raw hex values.
+============================================================ */
+
+/* ── Page wrapper ── */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+/* ── Page content container ── */
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  background-color: var(--neutral-surface-container-fg);
+  border-radius: var(--radius-card-lg);
+  padding: var(--spacing-m);
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: var(--font-size-heading-medium);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+  line-height: var(--line-height-heading);
+}
+
+/* ── Shared card ── */
+.card {
+  background-color: var(--neutral-surface-container-fg);
+  border: 1px solid var(--neutral-surface-container-low);
+  border-radius: var(--radius-card-lg);
+  padding: var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+}
+
+/* ── Top row: two equal-width cards ── */
+.topRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-m);
+  align-items: start;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DISTRIBUCIÓN POR CANAL
+══════════════════════════════════════════════════════════════ */
+
+.donutSection {
+  display: flex;
+  gap: var(--spacing-s);
+  align-items: center;
+}
+
+
+/* ── Legend ── */
+.legendList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  min-width: 0;
+}
+
+/* ── Bottom stats ── */
+.statsRow {
+  display: flex;
+  gap: var(--spacing-s);
+  padding-top: var(--spacing-xs);
+  border-top: 1px solid var(--neutral-surface-bg);
+}
+
+.statsRow > * {
+  flex: 1;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   EVOLUCIÓN TRIMESTRAL
+══════════════════════════════════════════════════════════════ */
+
+.barChartWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.barsRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  height: 210px;
+}
+
+/* Each ChartBar fills its flex column equally */
+.barItem {
+  flex: 1 0 0 !important;
+  width: auto !important;
+  height: 210px !important;
+}
+
+/* ── X-axis ── */
+.xAxis {
+  width: 100%;
+}
+
+.xAxisLine {
+  width: 100%;
+  height: 1px;
+  background-color: var(--neutral-on-surface-highest);
+}
+
+.xAxisLabels {
+  display: flex;
+  width: 100%;
+}
+
+.xAxisTick {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.tickMark {
+  width: 1px;
+  height: 6px;
+  background-color: var(--neutral-on-surface-highest);
+}
+
+.tickLabel {
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-regular);
+  color: var(--neutral-on-surface-highest);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MÉTRICAS POR CANAL TABLE
+══════════════════════════════════════════════════════════════ */
+
+.metricsTable {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.tableHeader {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-s);
+  height: var(--height-cell-md);
+  border-bottom: 1px solid var(--color-cell-border);
+}
+
+.tableHeader > * {
+  font-size: var(--font-size-cell-header);
+  font-weight: var(--font-weight-cell-header);
+  color: var(--color-cell-text-dark);
+}
+
+/* Rows */
+.tableRow {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-s);
+  height: var(--height-cell-sm);
+  border-bottom: 1px solid var(--color-cell-border);
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow > * {
+  font-size: var(--font-size-cell-data);
+  font-weight: var(--font-weight-cell-data);
+  color: var(--color-cell-text-medium);
+}
+
+/* Column widths */
+.colCanal {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  min-width: 0;
+}
+
+.colNum {
+  flex: 1;
+  text-align: right;
+}
+
+.colAutonomia {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+/* Canal color dot */
+.canalDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-dot);
+  flex-shrink: 0;
+}
+
+.canalName {
+  font-size: var(--font-size-cell-data);
+  color: var(--color-cell-text-medium);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Autonomía Digital bar + value */
+.autonomiaBar {
+  flex: 1;
+  /* Override progress bar fill to match Figma dark violet */
+  --color-progress-fill: var(--chart-series-15);
+}
+
+.autonomiaValue {
+  width: 40px;
+  text-align: right;
+  flex-shrink: 0;
+  font-size: var(--font-size-cell-data);
+  color: var(--color-cell-text-medium);
+}

@@ -1,0 +1,8 @@
+/* ============================================================
+   TOKEN ENTRY POINT
+   Import order matters: primitives must be defined before
+   semantics so the var() references resolve correctly.
+============================================================ */
+
+@import './primitive.css';
+@import './semantic.css';

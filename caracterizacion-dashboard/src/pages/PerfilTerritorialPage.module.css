@@ -1,0 +1,305 @@
+/* ============================================================
+   PerfilTerritorialPage
+   Rules: semantic tokens only, no hex, no gradient
+============================================================ */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+/* ── Page content container ────────────────────────────────── */
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  background-color: var(--neutral-surface-container-fg);
+  border-radius: var(--radius-card-lg);
+  padding: var(--spacing-m);
+}
+
+/* ── Page title ────────────────────────────────────────────── */
+.pageTitle {
+  margin: 0;
+  font-size: var(--font-size-heading-medium);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+  line-height: 1;
+}
+
+/* ── Top row: two sections side by side ────────────────────── */
+.topRow {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-m);
+}
+
+.topRow .section {
+  flex: 1;
+}
+
+/* ── Section card ──────────────────────────────────────────── */
+.section {
+  background-color: var(--neutral-surface-container-fg);
+  border-radius: var(--radius-card-lg);
+  padding: var(--spacing-s);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+  line-height: 1;
+}
+
+/* ── Métricas por Region ── */
+.regionList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.regionRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px solid var(--neutral-surface-container-high);
+}
+
+.regionRow:last-child {
+  border-bottom: none;
+}
+
+/* Left block */
+.regionLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.regionName {
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+  line-height: 1.2;
+}
+
+.regionClientes {
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-semibold);
+  color: var(--neutral-on-surface-medium);
+  line-height: 1.2;
+}
+
+/* Vertical divider */
+.regionDivider {
+  width: 1px;
+  height: 56px;
+  background-color: var(--neutral-surface-container-high);
+  flex-shrink: 0;
+}
+
+/* Right block: 3 metric rows */
+.regionMetrics {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs);
+  min-width: 0;
+}
+
+.metricRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.metricLabel {
+  width: 64px;
+  flex-shrink: 0;
+  font-size: var(--font-size-caption-large);
+  color: var(--neutral-on-surface-medium);
+}
+
+.metricBar {
+  flex: 1;
+  min-width: 0;
+}
+
+.metricPct {
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+  font-size: var(--font-size-caption-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Bar chart — Clientes por Rango de Distancia al CD
+══════════════════════════════════════════════════════════════ */
+
+.barChartWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+}
+
+.barsArea {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-xs);
+  height: 180px;
+}
+
+.barCol {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.bar {
+  width: 100%;
+  background-color: var(--chart-series-10);
+  border-radius: 3px 3px 0 0;
+  min-height: 2px;
+}
+
+/* X-axis */
+.xAxis {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.xAxisLine {
+  width: 100%;
+  height: 1px;
+  background-color: var(--neutral-on-surface-highest);
+}
+
+.xAxisLabels {
+  display: flex;
+  width: 100%;
+}
+
+.xAxisTick {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tickMark {
+  width: 1px;
+  height: 6px;
+  background-color: var(--neutral-on-surface-highest);
+}
+
+.tickLabel {
+  font-size: var(--font-size-caption-small);
+  color: var(--neutral-on-surface-high);
+  text-align: center;
+  line-height: 1.4;
+  padding-top: 2px;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Table — Tabla de Distancias y Cobertura
+══════════════════════════════════════════════════════════════ */
+
+.distTable {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.distHeader {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-bottom: 1px solid var(--neutral-surface-container-low);
+  padding: 0 var(--spacing-xs);
+}
+
+.distHeader > * {
+  font-size: var(--font-size-caption-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+}
+
+.distRow {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-bottom: 1px solid var(--neutral-surface-container-low);
+  padding: 0 var(--spacing-xs);
+}
+
+.distRow:last-child {
+  border-bottom: none;
+}
+
+.distRow > * {
+  font-size: var(--font-size-caption-large);
+  color: var(--neutral-on-surface-high);
+}
+
+/* Column widths */
+.colRango      { flex: 2; }
+.colClientes   { flex: 1; text-align: right; }
+.colCobertura  { flex: 1; text-align: right; }
+
+.colDensidad {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.densBar {
+  flex: 1;
+  min-width: 0;
+}
+
+.densPct {
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+  font-size: var(--font-size-caption-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+}
+
+.colCanal {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.canalDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.colOportunidad {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.oportunidadBadge {
+  font-size: var(--font-size-caption-large);
+  font-weight: var(--font-weight-bold);
+}

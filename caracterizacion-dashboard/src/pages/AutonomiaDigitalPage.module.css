@@ -1,0 +1,26 @@
+/* ============================================================
+   AutonomiaDigitalPage
+   Rules: semantic tokens only, no hex, no gradient
+============================================================ */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+/* ── Content card ──────────────────────────────────────────── */
+.contentCard {
+  width: 100%;
+  background-color: var(--neutral-surface-container-fg);
+  border-radius: var(--radius-card-lg);
+  padding: var(--spacing-s);
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--font-size-heading-medium);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+  line-height: 1;
+}

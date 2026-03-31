@@ -1,0 +1,218 @@
+/* ============================================================
+   PRIMITIVE TOKENS — Juntos+ DS
+   Raw, scale-based values from the "Core Tokens" collection in Figma:
+   https://www.figma.com/design/Eizk5sNznUDqU6bmIOYuD7/Juntos--DS
+
+   Collections extracted via Figma Variables API:
+     • Core Tokens — 134 variables (Color, Size, Breakpoint, Typography)
+
+   RULES:
+   - Never reference primitive tokens directly in components
+   - Always alias through semantic.css first
+============================================================ */
+
+:root {
+
+  /* ============================================================
+     COLOR PALETTE
+     Figma: Core Tokens / Color
+     Scale: 000 (darkest/most saturated) → 600 (lightest/least saturated)
+  ============================================================ */
+
+  /* --- Neutral --- */
+  --color-neutral-000: #141414;
+  --color-neutral-100: #222222;
+  --color-neutral-200: #6e6e6e;
+  --color-neutral-300: #acacac;
+  --color-neutral-400: #d9d9d9;
+  --color-neutral-500: #f2f2f2;
+  --color-neutral-600: #f7f7f7;
+  --color-neutral-700: #fcfcfc;
+  --color-neutral-800: #ffffff;
+
+  /* --- Red (brand primary) --- */
+  --color-red-000: #660012;
+  --color-red-100: #bd021c;
+  --color-red-200: #e31f42;
+  --color-red-300: #ff3b52;
+  --color-red-400: #ffb2c0;
+  --color-red-500: #ffe5ea;
+  --color-red-600: #fffafb;
+
+  /* --- Salmon --- */
+  --color-salmon-000: #6f221d;
+  --color-salmon-100: #d92a1c;
+  --color-salmon-200: #f24f4f;
+  --color-salmon-300: #fd9797;
+  --color-salmon-400: #ffbebd;
+  --color-salmon-500: #fff0f2;
+  --color-salmon-600: #fffafa;
+
+  /* --- Orange --- */
+  --color-orange-000: #662c00;
+  --color-orange-100: #cb4802;
+  --color-orange-200: #f55600;
+  --color-orange-300: #ffa766;
+  --color-orange-400: #ffd3b2;
+  --color-orange-500: #fff0e5;
+  --color-orange-600: #fff9f5;
+
+  /* --- Mustard --- */
+  --color-mustard-000: #664a00;
+  --color-mustard-100: #c69000;
+  --color-mustard-200: #ffc01a;
+  --color-mustard-300: #ffdc80;
+  --color-mustard-400: #ffeab2;
+  --color-mustard-500: #fff8e5;
+  --color-mustard-600: #fffefc;
+
+  /* --- Yellow --- */
+  --color-yellow-000: #665b00;
+  --color-yellow-100: #b2a000;
+  --color-yellow-200: #ead731;
+  --color-yellow-300: #ffe71a;
+  --color-yellow-400: #fff7b2;
+  --color-yellow-500: #fffce5;
+  --color-yellow-600: #fffefa;
+
+  /* --- Green --- */
+  --color-green-000: #188500;
+  --color-green-100: #00a226;
+  --color-green-200: #63d749;
+  --color-green-300: #89f172;
+  --color-green-400: #edfbe9;
+  --color-green-500: #f3fcf1;
+  --color-green-600: #fafffb;
+
+  /* --- Olive --- */
+  --color-olive-000: #526600;
+  --color-olive-100: #8fb200;
+  --color-olive-200: #c5f115;
+  --color-olive-300: #d1ff1a;
+  --color-olive-400: #f0ffb2;
+  --color-olive-500: #faffe5;
+  --color-olive-600: #fefffa;
+
+  /* --- Cyan --- */
+  --color-cyan-000: #005766;
+  --color-cyan-100: #0098b2;
+  --color-cyan-200: #04c8eb;
+  --color-cyan-300: #66e8ff;
+  --color-cyan-400: #b2f4ff;
+  --color-cyan-500: #e5fbff;
+  --color-cyan-600: #fafeff;
+
+  /* --- Blue --- */
+  --color-blue-000: #002ab2;
+  --color-blue-100: #0234d7;
+  --color-blue-200: #1a4fff;
+  --color-blue-300: #668aff;
+  --color-blue-400: #b2c4ff;
+  --color-blue-500: #e5ebff;
+  --color-blue-600: #fafbff;
+
+  /* --- Violet --- */
+  --color-violet-000: #300066;
+  --color-violet-100: #5300b2;
+  --color-violet-200: #851aff;
+  --color-violet-300: #a557fe;
+  --color-violet-400: #d6b2ff;
+  --color-violet-500: #f1e5ff;
+  --color-violet-600: #fcfaff;
+
+  /* --- Purple --- */
+  --color-purple-000: #590066;
+  --color-purple-100: #9c00b2;
+  --color-purple-200: #e21aff;
+  --color-purple-300: #ef80ff;
+  --color-purple-400: #f5b2ff;
+  --color-purple-500: #fce5ff;
+  --color-purple-600: #fefaff;
+
+  /* --- Magenta --- */
+  --color-magenta-000: #651b32;
+  --color-magenta-100: #b20047;
+  --color-magenta-200: #ff1a75;
+  --color-magenta-300: #ff80b2;
+  --color-magenta-400: #ffb2d1;
+  --color-magenta-500: #ffe5f0;
+  --color-magenta-600: #fffafc;
+
+
+  /* ============================================================
+     SIZE SCALE
+     Figma: Core Tokens / Size
+     Base unit: 4px — values from size-4 to size-96
+  ============================================================ */
+
+  --size-4:  4px;
+  --size-8:  8px;
+  --size-10: 10px;
+  --size-12: 12px;
+  --size-16: 16px;
+  --size-20: 20px;
+  --size-24: 24px;
+  --size-28: 28px;
+  --size-32: 32px;
+  --size-36: 36px;
+  --size-40: 40px;
+  --size-44: 44px;
+  --size-48: 48px;
+  --size-52: 52px;
+  --size-56: 56px;
+  --size-60: 60px;
+  --size-64: 64px;
+  --size-68: 68px;
+  --size-72: 72px;
+  --size-76: 76px;
+  --size-80: 80px;
+  --size-84: 84px;
+  --size-88: 88px;
+  --size-92: 92px;
+  --size-96: 96px;
+
+
+  /* ============================================================
+     BREAKPOINTS
+     Figma: Core Tokens / Breakpoint
+  ============================================================ */
+
+  --breakpoint-mobile:  390px;
+  --breakpoint-tablet:  834px;
+  --breakpoint-desktop: 1280px;
+
+
+  /* ============================================================
+     TYPOGRAPHY — FAMILY
+     Figma: Core Tokens / Typography/Family
+  ============================================================ */
+
+  --font-family-inter: 'Inter', sans-serif;
+
+
+  /* ============================================================
+     TYPOGRAPHY — WEIGHT
+     Figma: Core Tokens / Typography/Weight
+  ============================================================ */
+
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+
+
+  /* ============================================================
+     TYPOGRAPHY — LINE HEIGHT
+     Figma: Core Tokens / Typography/Line Height
+     Stored as unitless ratios (percentage ÷ 100)
+  ============================================================ */
+
+  --font-lineheight-100: 1;      /* 100%   */
+  --font-lineheight-112: 1.125;  /* 112.5% */
+  --font-lineheight-120: 1.2;    /* 120%   */
+  --font-lineheight-125: 1.25;   /* 125%   */
+  --font-lineheight-133: 1.33;   /* 133%   */
+  --font-lineheight-150: 1.5;    /* 150%   */
+  --font-lineheight-170: 1.7;    /* 170%   */
+}

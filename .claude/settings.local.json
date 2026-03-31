@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(find \"C:/Users/ocwin/OneDrive/Escritorio/Trabajo/1. Wizeline/KOF/Delivery & Visit/Design System + Dashboard Caracterizacion\" -type f)",
+      "mcp__claude_ai_Figma__get_variable_defs",
+      "mcp__claude_ai_Figma__get_design_context",
+      "mcp__claude_ai_Figma__get_metadata",
+      "mcp__claude_ai_Figma__search_design_system",
+      "mcp__claude_ai_Figma__get_screenshot",
+      "Bash(node:*)",
+      "Bash(npm run:*)",
+      "Bash(npx tsc:*)",
+      "Bash(find 'C:\\\\Users\\\\ocwin\\\\OneDrive\\\\Escritorio\\\\Trabajo\\\\1. Wizeline\\\\KOF\\\\Delivery and Visit\\\\Design System + Dashboard Caracterizacion\\\\caracterizacion-dashboard' -type d -name *juntos* -o -type d -name *design* -o -type d -name *components*)"
+    ]
+  }
+}

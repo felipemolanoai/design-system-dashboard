@@ -1,0 +1,28 @@
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.label {
+  display: block;
+  font-size: var(--font-size-stat-label);
+  font-weight: var(--font-weight-stat-label);
+  color: var(--color-stat-label);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1;
+}
+
+.value {
+  display: block;
+  font-size: var(--font-size-stat-value);
+  font-weight: var(--font-weight-stat-value);
+  color: var(--color-stat-value-default);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

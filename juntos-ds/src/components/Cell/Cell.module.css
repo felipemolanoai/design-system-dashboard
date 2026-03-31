@@ -1,0 +1,33 @@
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width intentionally omitted — flex-stretch fills the column width */
+  padding: 0 var(--spacing-2xs);
+  background-color: var(--color-cell-bg-default);
+  border-bottom: 1px solid var(--color-cell-border);
+  font-size: var(--font-size-cell-data);
+  font-weight: var(--font-weight-cell-data);
+  color: var(--color-cell-text-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cell--sm {
+  height: var(--height-cell-sm);
+}
+
+.cell--md {
+  height: var(--height-cell-md);
+}
+
+.cell--bold {
+  font-weight: var(--font-weight-cell-header);
+  color: var(--color-cell-text-medium);
+}
+
+.cell--label {
+  justify-content: flex-start;
+  padding-left: var(--spacing-xs);
+}

@@ -1,0 +1,241 @@
+/* ============================================================
+   ActividadesPDVPage
+   Rules: semantic tokens only, no hex, no gradient
+============================================================ */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+/* ── Page content container ────────────────────────────────── */
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  background-color: var(--neutral-surface-container-fg);
+  border-radius: var(--radius-card-lg);
+  padding: var(--spacing-m);
+}
+
+/* ── Page title ────────────────────────────────────────────── */
+.pageTitle {
+  margin: 0;
+  font-size: var(--font-size-heading-medium);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+  line-height: 1;
+}
+
+/* ── Bottom row: two sections side by side ─────────────────── */
+.bottomRow {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-m);
+}
+
+.bottomRow .section {
+  flex: 1;
+}
+
+/* ── Section card ──────────────────────────────────────────── */
+.section {
+  background-color: var(--neutral-surface-container-fg);
+  border-radius: var(--radius-card-lg);
+  padding: var(--spacing-s);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+  line-height: 1;
+}
+
+/* ── Heatmap ── */
+.heatmapWrap {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs);
+}
+
+.heatmapGrid {
+  display: flex;
+  width: 100%;
+}
+
+.heatmapLegend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  width: 100%;
+}
+
+.heatmapLegendTitle {
+  font-size: var(--font-size-caption-small);
+  font-weight: var(--font-weight-regular);
+  color: var(--neutral-on-surface-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.72px;
+  white-space: nowrap;
+}
+
+.heatmapLegendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+.heatmapLegendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-dot);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.heatmapLegendLabel {
+  font-size: var(--font-size-caption-small);
+  font-weight: var(--font-weight-regular);
+  color: var(--neutral-on-surface-high);
+  white-space: nowrap;
+}
+
+.heatmapStats {
+  display: flex;
+  gap: var(--spacing-s);
+  align-items: flex-start;
+  padding-top: var(--spacing-xs);
+  border-top: 1px solid var(--neutral-surface-bg);
+  width: 100%;
+}
+
+.heatmapStats > * {
+  flex: 1;
+}
+
+/* ── Shared bar chart ── */
+.barChartWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.barsArea {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-xs);
+  height: 180px;
+}
+
+.barGroup {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 100%;
+  width: 100%;
+}
+
+.barCobertura {
+  flex: 1;
+  background-color: var(--chart-series-10);
+  border-radius: 2px 2px 0 0;
+  min-height: 2px;
+}
+
+.barMeta {
+  flex: 1;
+  background-color: var(--chart-warning);
+  border-radius: 2px 2px 0 0;
+  min-height: 2px;
+}
+
+.barPromedio {
+  flex: 1;
+  background-color: var(--chart-series-13);
+  border-radius: 2px 2px 0 0;
+  min-height: 2px;
+}
+
+/* ── X-axis ── */
+.xAxis {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.xAxisLine {
+  width: 100%;
+  height: 1px;
+  background-color: var(--neutral-on-surface-highest);
+}
+
+.xAxisLabels {
+  display: flex;
+  width: 100%;
+}
+
+.xAxisTick {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tickMark {
+  width: 1px;
+  height: 6px;
+  background-color: var(--neutral-on-surface-highest);
+}
+
+.tickLabel {
+  font-size: var(--font-size-caption-small);
+  color: var(--neutral-on-surface-high);
+  text-align: center;
+  line-height: 1.4;
+  padding-top: 2px;
+}
+
+/* ── Legend ── */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-m);
+  padding-top: var(--spacing-xs);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.dotCobertura { background-color: var(--chart-series-10); }
+.dotMeta      { background-color: var(--chart-warning);   }
+.dotPromedio  { background-color: var(--chart-series-13); }
+
+.legendLabel {
+  font-size: var(--font-size-caption-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-high);
+  white-space: nowrap;
+}

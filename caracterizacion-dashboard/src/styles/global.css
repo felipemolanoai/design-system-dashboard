@@ -1,0 +1,22 @@
+/* ============================================================
+   Global reset — caracterizacion-dashboard
+   Applied AFTER juntos-ds tokens so var() references resolve.
+============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-default);
+  background-color: var(--color-bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
