@@ -1,1 +1,1 @@
-{"buildCommand":"cd caracterizacion-dashboard && npm install && npm run build","outputDirectory":"caracterizacion-dashboard/dist","installCommand":"echo skip"}
+{"buildCommand":"cd juntos-ds && npm install && npm run build && cd ../caracterizacion-dashboard && npm install && npm run build","outputDirectory":"caracterizacion-dashboard/dist","installCommand":"echo skip"}
