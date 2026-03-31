@@ -1,0 +1,1 @@
+{"buildCommand":"cd caracterizacion-dashboard && npm install && npm run build","outputDirectory":"caracterizacion-dashboard/dist","installCommand":"echo skip"}
