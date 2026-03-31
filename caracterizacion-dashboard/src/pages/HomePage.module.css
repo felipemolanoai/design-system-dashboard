@@ -90,61 +90,18 @@
   min-width: 40px;
 }
 
-/* ── Scatter plot ────────────────────────────────────────────── */
-/*
-   .scatterWrap (column, 200px tall)
-     ├── .scatterPlot (flex-1, relative, has axis borders)
-     │     ├── .bubble (absolute, rounded, token bg)
-     │     └── .scatterDiagonal (solid 1px border-right on 45° — no gradient)
-     └── .scatterLabels (axis label row)
-*/
-.scatterWrap {
+/* ── Potencial RTM bubble scatter chart ─────────────────────── */
+.potencialWrap {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3xs);
+  gap: var(--spacing-2xs);
   width: 100%;
-  height: 200px;
 }
 
-.scatterPlot {
-  position: relative;
-  flex: 1;
-  border-left: 1px solid var(--neutral-surface-container-low);
-  border-bottom: 1px solid var(--neutral-surface-container-low);
-  margin-left: var(--spacing-m);
-  overflow: hidden;
-}
-
-.bubble {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.85;
-  transform: translate(-50%, 50%);
-}
-
-/* Diagonal reference line — solid 1px, token color, no gradient */
-.scatterDiagonal {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 141%;           /* √2 × 100% to reach the top-right corner */
-  height: 1px;
-  background-color: var(--neutral-surface-container-low);
-  transform-origin: left bottom;
-  transform: rotate(-45deg);
-}
-
-.scatterLabels {
-  display: flex;
-  justify-content: space-between;
-  padding-left: var(--spacing-m);
-}
-
-.scatterYLabel,
-.scatterXLabel {
-  font-size: var(--font-size-caption-small);
-  font-weight: var(--font-weight-regular);
-  color: var(--neutral-on-surface-medium);
+.potencialSvg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ── Heatmap ─────────────────────────────────────────────────── */

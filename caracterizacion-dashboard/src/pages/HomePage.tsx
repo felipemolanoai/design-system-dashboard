@@ -81,40 +81,112 @@ function HBarChartPlaceholder({ items }: { items: HBarItem[] }) {
   )
 }
 
-// ── Scatter placeholder ──────────────────────────────────────────
-function ScatterPlaceholder() {
-  const bubbles: { x: number; y: number; size: number; color: string }[] = [
-    { x: 10, y: 15, size: 48, color: 'var(--chart-series-1)' },
-    { x: 28, y: 30, size: 32, color: 'var(--chart-negative)' },
-    { x: 42, y: 50, size: 20, color: 'var(--chart-warning)' },
-    { x: 55, y: 62, size: 16, color: 'var(--chart-series-10)' },
-    { x: 65, y: 70, size: 14, color: 'var(--chart-positive)' },
-    { x: 72, y: 78, size: 12, color: 'var(--chart-series-13)' },
-    { x: 80, y: 82, size: 10, color: 'var(--action-info-surface)' },
-  ]
+// ── Potencial RTM bubble scatter chart ──────────────────────────
+const CANAL_TABS_POTENCIAL = ['HM', 'OP', 'Auto', 'May', 'HMC', 'Estr'] as const
+type CanalKey = typeof CANAL_TABS_POTENCIAL[number]
+
+interface ScatterPoint { x: number; y: number; r: number; canal: CanalKey }
+
+const SCATTER_POINTS: ScatterPoint[] = [
+  { x: 30, y: 28, r: 22, canal: 'HM'   },
+  { x: 88, y: 63, r:  6, canal: 'HM'   },
+  { x: 50, y: 30, r: 15, canal: 'OP'   },
+  { x: 78, y: 57, r:  7, canal: 'OP'   },
+  { x: 50, y: 35, r: 12, canal: 'Auto' },
+  { x: 57, y: 43, r:  9, canal: 'Auto' },
+  { x: 56, y: 41, r:  9, canal: 'May'  },
+  { x: 91, y: 66, r:  5, canal: 'May'  },
+  { x: 75, y: 52, r: 13, canal: 'HMC'  },
+  { x: 86, y: 57, r:  7, canal: 'HMC'  },
+  { x: 82, y: 57, r:  7, canal: 'Estr' },
+  { x: 94, y: 79, r:  5, canal: 'Estr' },
+]
+
+const CANAL_COLORS: Record<CanalKey, string> = {
+  HM:   'var(--chart-negative)',
+  OP:   'var(--chart-series-13)',
+  Auto: 'var(--chart-positive)',
+  May:  'var(--chart-warning)',
+  HMC:  'var(--chart-series-10)',
+  Estr: 'var(--chart-series-1)',
+}
+
+function PotencialChart() {
+  const [activeCanal, setActiveCanal] = useState<CanalKey | null>(null)
+
+  const visiblePoints = activeCanal
+    ? SCATTER_POINTS.filter(p => p.canal === activeCanal)
+    : SCATTER_POINTS
+
+  const W = 280, H = 150
+  const PAD = { top: 10, right: 10, bottom: 28, left: 34 }
+  const plotW = W - PAD.left - PAD.right
+  const plotH = H - PAD.top - PAD.bottom
+  const mx = (v: number) => PAD.left + (v / 100) * plotW
+  const my = (v: number) => PAD.top + (1 - v / 100) * plotH
+  const TICKS = [0, 25, 50, 75, 100]
 
   return (
-    <div className={styles.scatterWrap}>
-      <div className={styles.scatterPlot}>
-        {bubbles.map((b, i) => (
-          <div
-            key={i}
-            className={styles.bubble}
-            style={{
-              left: `${b.x}%`,
-              bottom: `${b.y}%`,
-              width: b.size,
-              height: b.size,
-              backgroundColor: b.color,
-            }}
+    <div className={styles.potencialWrap}>
+      <TabBar>
+        {CANAL_TABS_POTENCIAL.map(canal => (
+          <Tab
+            key={canal}
+            label={canal}
+            active={activeCanal === canal}
+            onClick={() => setActiveCanal(activeCanal === canal ? null : canal)}
           />
         ))}
-        <div className={styles.scatterDiagonal} />
-      </div>
-      <div className={styles.scatterLabels}>
-        <span className={styles.scatterYLabel}>% Realización</span>
-        <span className={styles.scatterXLabel}>Índice Potencial</span>
-      </div>
+      </TabBar>
+
+      <svg viewBox={`0 0 ${W} ${H}`} className={styles.potencialSvg}
+        aria-label="Índice Potencial vs % Realización">
+        {/* Grid lines */}
+        {TICKS.map(t => (
+          <line key={`gy${t}`} x1={mx(0)} y1={my(t)} x2={mx(100)} y2={my(t)}
+            stroke="var(--neutral-surface-container-high)" strokeWidth="0.5" />
+        ))}
+        {TICKS.map(t => (
+          <line key={`gx${t}`} x1={mx(t)} y1={my(100)} x2={mx(t)} y2={my(0)}
+            stroke="var(--neutral-surface-container-high)" strokeWidth="0.5" />
+        ))}
+        {/* Axes */}
+        <line x1={mx(0)} y1={my(100)} x2={mx(0)} y2={my(0)}
+          stroke="var(--neutral-surface-container-low)" strokeWidth="1" />
+        <line x1={mx(0)} y1={my(0)} x2={mx(100)} y2={my(0)}
+          stroke="var(--neutral-surface-container-low)" strokeWidth="1" />
+        {/* Dashed diagonal reference line */}
+        <line x1={mx(0)} y1={my(0)} x2={mx(100)} y2={my(100)}
+          stroke="var(--neutral-on-surface-medium)" strokeWidth="1"
+          strokeDasharray="4 3" opacity="0.4" />
+        {/* Y-axis labels */}
+        {TICKS.map(t => (
+          <text key={`yl${t}`} x={PAD.left - 4} y={my(t)}
+            textAnchor="end" dominantBaseline="middle"
+            fontSize="7.5" fill="var(--neutral-on-surface-medium)">{t}</text>
+        ))}
+        {/* X-axis labels */}
+        {TICKS.map(t => (
+          <text key={`xl${t}`} x={mx(t)} y={PAD.top + plotH + 10}
+            textAnchor="middle" fontSize="7.5" fill="var(--neutral-on-surface-medium)">{t}</text>
+        ))}
+        {/* Y-axis title */}
+        <text x={7} y={PAD.top + plotH / 2} textAnchor="middle"
+          fontSize="7.5" fill="var(--neutral-on-surface-high)"
+          transform={`rotate(-90, 7, ${PAD.top + plotH / 2})`}>
+          % Realización
+        </text>
+        {/* X-axis title */}
+        <text x={PAD.left + plotW / 2} y={H - 1}
+          textAnchor="middle" fontSize="7.5" fill="var(--neutral-on-surface-high)">
+          Índice Potencial
+        </text>
+        {/* Bubbles */}
+        {visiblePoints.map((p, i) => (
+          <circle key={i} cx={mx(p.x)} cy={my(p.y)} r={p.r}
+            fill={CANAL_COLORS[p.canal]} opacity="0.85" />
+        ))}
+      </svg>
     </div>
   )
 }
@@ -328,7 +400,7 @@ export function HomePage() {
               badge={<Badge>Actual vs Potencial</Badge>}
             />
           }
-          chart={<ScatterPlaceholder />}
+          chart={<PotencialChart />}
           stats={
             <>
               <StatItem label="Gap Promedio"       value="−14.9 pts" valueColor="var(--chart-negative)" />
