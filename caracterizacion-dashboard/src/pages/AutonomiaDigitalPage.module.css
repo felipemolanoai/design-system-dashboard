@@ -7,6 +7,9 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-m);
+  width: 100%;
+  background-color: var(--neutral-surface-bg);
+  padding: var(--spacing-m);
 }
 
 /* ── Content card ──────────────────────────────────────────── */
@@ -15,6 +18,9 @@
   background-color: var(--neutral-surface-container-fg);
   border-radius: var(--radius-card-lg);
   padding: var(--spacing-s);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
 }
 
 .heading {
@@ -23,4 +29,217 @@
   font-weight: var(--font-weight-bold);
   color: var(--neutral-on-surface-highest);
   line-height: 1;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ── Charts Section ────────────────────────────────────────── */
+.chartsSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-m);
+  width: 100%;
+  margin-bottom: var(--spacing-m);
+}
+
+@media (max-width: 1200px) {
+  .chartsSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartCard {
+  background-color: var(--neutral-surface-container-fg);
+  border: 1px solid var(--neutral-surface-container-low);
+  border-radius: var(--radius-card-lg);
+  padding: var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.chartTitle {
+  margin: 0;
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-on-surface-highest);
+  line-height: var(--line-height-short);
+}
+
+.barChartContainer {
+  display: flex;
+  gap: var(--spacing-s);
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 280px;
+}
+
+.barGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: var(--spacing-xs);
+  height: 100%;
+}
+
+.stackedBarGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: var(--spacing-xs);
+  height: 100%;
+  position: relative;
+}
+
+.stackedBarContainer {
+  width: 100%;
+  max-width: 54px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.stackedBar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.stackedBarOverlay {
+  width: 100%;
+  display: flex;
+}
+
+.bar {
+  width: 100%;
+  max-width: 54px;
+}
+
+.barLabel {
+  font-size: var(--font-size-body-small);
+  color: var(--neutral-on-surface-highest);
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+  word-break: break-word;
+}
+
+/* ── Distribution Card ─────────────────────────────────────── */
+.distributionCard {
+  background-color: var(--neutral-surface-container-fg);
+  border: 1px solid var(--neutral-surface-container-low);
+  border-radius: var(--radius-card-lg);
+  padding: var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  width: 100%;
+}
+
+.progressRows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.progressRow {
+  display: grid;
+  grid-template-columns: 180px 1fr 100px;
+  align-items: center;
+  gap: var(--spacing-m);
+  padding: var(--spacing-xs);
+  border-radius: 6px;
+}
+
+.progressLabel {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+.colorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.channelName {
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-semibold);
+  color: var(--neutral-on-surface-high);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progressBarWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  --color-progress-fill: var(--chart-series-10);
+}
+
+.progressValue {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.count {
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-regular);
+  color: var(--neutral-on-surface-high);
+}
+
+.percentage {
+  font-size: var(--font-size-caption-large);
+  font-weight: var(--font-weight-regular);
+  color: var(--neutral-on-surface-medium);
+  width: 40px;
+  text-align: right;
+}
+
+/* ── Responsive adjustments ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .page {
+    padding: var(--spacing-s);
+    gap: var(--spacing-s);
+  }
+
+  .contentCard {
+    padding: var(--spacing-s);
+  }
+
+  .chartsSection {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-s);
+    margin-bottom: var(--spacing-s);
+  }
+
+  .chartCard {
+    padding: var(--spacing-s);
+  }
+
+  .barChartContainer {
+    height: 200px;
+    gap: var(--spacing-xs);
+  }
+
+  .progressRow {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+  }
+
+  .progressValue {
+    justify-content: flex-start;
+  }
+
+  .chartTitle {
+    font-size: var(--font-size-body-medium);
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_figma_figma__get_design_context",
+      "mcp__plugin_figma_figma__get_screenshot",
+      "mcp__plugin_figma_figma__whoami",
+      "Bash(npm run:*)",
+      "Bash(mv AutonomiaDigitalPage.js AutonomiaDigitalPage.jsx)",
+      "Bash(ls -la *.jsx)"
+    ]
+  }
+}

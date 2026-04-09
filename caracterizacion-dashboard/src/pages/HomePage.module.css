@@ -30,8 +30,17 @@
 /* ── Shared: side-by-side chart + legend ────────────────────── */
 .sideBySide {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: var(--spacing-s);
+  height: 100%;
+}
+
+.chartArea {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .legendList {
@@ -49,6 +58,8 @@
   flex-direction: column;
   gap: var(--spacing-2xs);
   width: 100%;
+  height: 100%;
+  justify-content: space-around;
 }
 
 .hbarRow {
@@ -96,12 +107,14 @@
   flex-direction: column;
   gap: var(--spacing-2xs);
   width: 100%;
+  height: 100%;
 }
 
 .potencialSvg {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  flex: 1;
 }
 
 /* ── Heatmap ─────────────────────────────────────────────────── */
@@ -111,6 +124,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2xs);
+  height: 100%;
 }
 
 .heatmapGrid {

@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Routes, Route } from 'react-router-dom';
 import { DashboardLayout } from './layouts/DashboardLayout';
 import { HomePage } from './pages/HomePage';
-import { AutonomiaDigitalPage } from './pages/AutonomiaDigitalPage';
+import { AutonomiaDigitalPage } from './pages/AutonomiaDigitalPage.jsx';
 import { PerfilClientePage } from './pages/PerfilClientePage';
 import { CanalRTMPage } from './pages/CanalRTMPage';
 import { TamanoRTMPage } from './pages/TamanoRTMPage';
