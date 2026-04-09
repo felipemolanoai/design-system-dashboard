@@ -1,0 +1,153 @@
+/* ============================================================
+   InputSearch — CSS Module
+   Only component tokens (section ④ of semantic.css) allowed.
+   No raw hex values, no primitive tokens.
+============================================================ */
+
+/* ---- Wrapper (pill container) ---- */
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+
+  min-height: var(--height-input-search-min);
+  max-height: var(--height-input-search-max);
+  min-width: 150px;
+  max-width: 1280px;
+
+  padding: var(--spacing-2xs) var(--spacing-s);
+
+  background-color: var(--color-input-search-bg);
+  border: var(--border-width-default) solid var(--color-input-search-border);
+  border-radius: var(--radius-input-search);
+
+  color: var(--color-input-search-icon);
+
+  transition:
+    border-color var(--duration-normal) var(--easing-default),
+    box-shadow   var(--duration-normal) var(--easing-default);
+}
+
+/* ---- Focus state (keyboard + click) ---- */
+.wrapper:focus-within:not(.disabled) {
+  border-color: var(--color-input-search-border-focus);
+  box-shadow: 0 0 0 2px var(--color-input-search-border-focus);
+}
+
+/* ---- Disabled state ---- */
+.wrapper.disabled {
+  background-color: var(--color-input-search-bg-disabled);
+  border-color: var(--color-input-search-border-disabled);
+  color: var(--color-input-search-icon-disabled);
+  cursor: not-allowed;
+}
+
+/* ---- Search icon (left slot) ---- */
+.searchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+/* ---- Text input ---- */
+.input {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  color: var(--color-input-search-text);
+
+  /* Remove browser default search input chrome */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input::placeholder {
+  color: var(--color-input-search-placeholder);
+}
+
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.input:disabled {
+  color: var(--color-input-search-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ---- Trailing area (right slot) ---- */
+.trailingArea {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+  flex-shrink: 0;
+}
+
+/* ---- Vertical divider ---- */
+.divider {
+  display: block;
+  width: 1px;
+  height: 20px;
+  background-color: var(--color-input-search-divider);
+  flex-shrink: 0;
+}
+
+/* ---- Clear button ---- */
+.clearBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+
+  border-radius: 50%;
+  transition: opacity var(--duration-fast) var(--easing-default);
+}
+
+.clearBtn:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+.clearBtn:disabled {
+  cursor: not-allowed;
+}
+
+.clearBtn:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* ---- Spinner ---- */
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.spinnerSvg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

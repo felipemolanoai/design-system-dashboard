@@ -389,7 +389,7 @@
 /* ── Client row active state ── */
 .clientRowActive {
   background-color: var(--action-secondary-surface-hover);
-  border-radius: var(--radius-badge);
+  border-radius: var(--radius-card);
   padding-left: var(--spacing-xs);
   padding-right: var(--spacing-xs);
   border-bottom-color: transparent;

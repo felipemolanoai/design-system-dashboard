@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  width: 100%;
+}
+
+.leading {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: var(--spacing-2xs);
+  min-width: 0;
+}
+
+.number {
+  font-size: var(--font-size-pillar-num);
+  font-weight: var(--font-weight-pillar-num);
+  color: var(--color-pillar-num);
+  line-height: 44px;
+  letter-spacing: 0.88px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  flex: 1;
+  min-width: 0;
+}
+
+.pilarLabel {
+  font-size: var(--font-size-pillar-label);
+  font-weight: var(--font-weight-pillar-label);
+  color: var(--color-pillar-label);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  line-height: 1;
+}
+
+.title {
+  font-size: var(--font-size-pillar-title);
+  font-weight: var(--font-weight-pillar-title);
+  color: var(--color-pillar-title);
+  line-height: 1;
+  letter-spacing: 0.88px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badgeSlot {
+  flex-shrink: 0;
+}

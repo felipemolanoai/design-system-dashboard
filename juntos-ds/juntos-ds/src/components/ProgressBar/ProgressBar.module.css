@@ -1,0 +1,29 @@
+/* ============================================================
+   ProgressBar — CSS Module
+   Only component tokens are allowed here. No primitives, no
+   raw hex values.
+============================================================ */
+
+.track {
+  width: 100%;
+  background-color: var(--color-progress-track);
+  border-radius: var(--radius-progress);
+  overflow: hidden;
+}
+
+/* ---- Sizes ---- */
+.sm {
+  height: var(--height-progress-sm);
+}
+
+.md {
+  height: var(--height-progress-md);
+}
+
+/* ---- Fill ---- */
+.fill {
+  height: 100%;
+  background-color: var(--color-progress-fill);
+  border-radius: var(--radius-progress);
+  transition: width var(--duration-normal) var(--easing-default);
+}

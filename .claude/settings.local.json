@@ -11,7 +11,17 @@
       "Bash(node:*)",
       "Bash(npm run:*)",
       "Bash(npx tsc:*)",
-      "Bash(find 'C:\\\\Users\\\\ocwin\\\\OneDrive\\\\Escritorio\\\\Trabajo\\\\1. Wizeline\\\\KOF\\\\Delivery and Visit\\\\Design System + Dashboard Caracterizacion\\\\caracterizacion-dashboard' -type d -name *juntos* -o -type d -name *design* -o -type d -name *components*)"
+      "Bash(find 'C:\\\\Users\\\\ocwin\\\\OneDrive\\\\Escritorio\\\\Trabajo\\\\1. Wizeline\\\\KOF\\\\Delivery and Visit\\\\Design System + Dashboard Caracterizacion\\\\caracterizacion-dashboard' -type d -name *juntos* -o -type d -name *design* -o -type d -name *components*)",
+      "Bash(mv index.ts index.js)",
+      "Bash(mv test-setup.ts test-setup.js)",
+      "Bash(rm vite-env.d.ts)",
+      "Bash(find . -name \"index.js\" -exec sed -i '/^export type /d' {} \\\\;)",
+      "Bash(cat)",
+      "Bash(perl /tmp/remove_types.pl Cell/Cell.jsx)",
+      "Bash(perl /tmp/remove_types.pl Tab/Tab.jsx)",
+      "Bash(perl /tmp/remove_types.pl Tab/TabBar.jsx)",
+      "Bash(find . -name \"*.jsx\" ! -name \"*.stories.jsx\" ! -name \"*.test.jsx\" -type f -exec sed -i 's/, \\) {/\\) {/g' {} \\\\;)",
+      "Bash(find . -name \"*.jsx\" ! -name \"*.stories.jsx\" ! -name \"*.test.jsx\" -exec grep -l \"^[[:space:]*\\).*{\" {} \\\\;)"
     ]
   }
 }

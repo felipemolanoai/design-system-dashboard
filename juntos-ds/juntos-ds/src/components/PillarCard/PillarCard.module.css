@@ -1,0 +1,31 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  height: 100%;
+  padding: 20px 24px 16px;
+  background-color: var(--color-pillar-bg);
+  border: 0.8px solid var(--color-pillar-border);
+  border-radius: var(--radius-card-lg);
+  overflow: hidden;
+}
+
+.header {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.chartArea {
+  width: 100%;
+}
+
+.statsRow {
+  display: flex;
+  gap: var(--spacing-s);
+  align-items: flex-start;
+  padding-top: var(--spacing-xs);
+  border-top: 0.8px solid var(--color-pillar-divider);
+  width: 100%;
+  flex-shrink: 0;
+}

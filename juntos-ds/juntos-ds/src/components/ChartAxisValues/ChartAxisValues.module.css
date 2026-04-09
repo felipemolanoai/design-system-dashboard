@@ -1,0 +1,115 @@
+/* ============================================================
+   ChartAxisValues — CSS Module
+   Only semantic tokens. No raw hex values.
+============================================================ */
+
+/* ── Vertical axis ── */
+.rootV {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.ticksV {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.tickV {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-2xs);
+  min-height: 30px;
+}
+
+.tickLabel {
+  font-size: var(--font-size-axis);
+  font-weight: var(--font-weight-axis);
+  color: var(--color-axis-label);
+  text-align: right;
+  white-space: nowrap;
+  line-height: var(--line-height-short);
+}
+
+/* 6 px horizontal tick mark (vertical axis) */
+.tickMarkH {
+  width: 6px;
+  height: 1px;
+  background-color: var(--color-axis-line);
+  flex-shrink: 0;
+}
+
+/* Axis line — vertical */
+.lineV {
+  width: 1px;
+  background-color: var(--color-axis-line);
+  flex-shrink: 0;
+  /* aligns line so it sits between the first and last tick centers */
+  margin-top: 15px;
+  margin-bottom: 14px;
+  align-self: stretch;
+}
+
+/* ── Horizontal axis ── */
+.rootH {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Axis line — horizontal */
+.lineHWrap {
+  position: relative;
+  width: 100%;
+}
+
+.lineH {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-axis-line);
+}
+
+/* Small extension to the left of the axis line */
+.lineHExtension {
+  position: absolute;
+  left: -6px;
+  top: 0;
+  width: 6px;
+  height: 1px;
+  background-color: var(--color-axis-line);
+}
+
+.ticksH {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.tickH {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* 6 px vertical tick mark (horizontal axis) */
+.tickMarkV {
+  width: 1px;
+  height: 6px;
+  background-color: var(--color-axis-line);
+  flex-shrink: 0;
+}
+
+.tickLabelH {
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-size-axis);
+  font-weight: var(--font-weight-axis);
+  color: var(--color-axis-label);
+  white-space: nowrap;
+  line-height: var(--line-height-short);
+}

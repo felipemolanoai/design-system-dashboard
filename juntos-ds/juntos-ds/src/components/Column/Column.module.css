@@ -1,0 +1,13 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  /* cells stretch to fill column width via align-items default (stretch) */
+}
+
+.column--label {
+  flex: 0 0 auto;
+  /* width driven by the longest text content — no circular % dependency */
+  width: max-content;
+}
